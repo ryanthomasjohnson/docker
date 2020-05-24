@@ -35,7 +35,6 @@ RUN pip install \
     beautifulsoup4 \
     requests
 
-RUN rc-update add sshd \
-		&& rc-status \
-		&& /etc/init.d/sshd start
+EXPOSE 20
+CMD ["/usr/sbin/sshd", "-D"]
 
