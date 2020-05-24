@@ -1,20 +1,21 @@
 FROM alpine:3.9.6
 
 RUN apk add --no-cache \
+		bash \
+		build-base \
+		ctags \
+		curl \
 		diffutils \
 		findutils \
-    bash \
-    build-base \
-    ctags \
-    curl \
-    g++ \
-    git \
-    make \
-    man \
-    ncurses-dev \
-    py3-pip \
-    python3 \
-    tmux \
+		g++ \
+		git \
+		make \
+		man \
+		ncurses-dev \
+		openssh \
+		py3-pip \
+		python3 \
+		tmux \
 		vim
 
 # RUN git clone --depth 1 https://github.com/vim/vim.git /tmp/vim \
@@ -33,6 +34,7 @@ RUN pip install \
     beautifulsoup4 \
     requests
 
-RUN git clone https://github.com/ryanthomasjohnson/dotfiles.git /dotfiles \
-    && (cd /dotfiles && ./install.sh)
+RUN rc-update add sshd
+		&& rc-status
+		&& /etc/init.d/sshd start
 
