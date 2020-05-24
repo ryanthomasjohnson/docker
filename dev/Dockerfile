@@ -35,15 +35,13 @@ RUN pip install \
     beautifulsoup4 \
     requests
 
-RUN echo -e '\
+RUN echo -e '\n\
 StrictModes no\n\
 PasswordAuthentication no\n\
-UsePAM yes\n\
+# UsePAM yes\n\
 ' >> /etc/ssh/sshd_config
 
 EXPOSE 20
 
-ENTRYPOINT ["ssh-keygen", "-A"]
-
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ssh-keygen -A; /usr/sbin/sshd -D
 
