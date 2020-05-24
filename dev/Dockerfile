@@ -38,5 +38,5 @@ RUN pip install \
 RUN /usr/bin/ssh-keygen -A
 
 EXPOSE 20
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D", "-d"]
 
