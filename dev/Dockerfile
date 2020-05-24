@@ -42,6 +42,8 @@ UsePAM yes\n\
 ' >> /etc/ssh/sshd_config
 
 EXPOSE 20
+
 ENTRYPOINT ["ssh-keygen", "-A"]
+
 CMD ["/usr/sbin/sshd", "-D"]
 
