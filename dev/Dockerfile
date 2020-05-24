@@ -12,6 +12,7 @@ RUN apk add --no-cache \
 		make \
 		man \
 		ncurses-dev \
+		openrc \
 		openssh \
 		py3-pip \
 		python3 \
