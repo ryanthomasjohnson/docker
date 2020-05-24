@@ -35,6 +35,8 @@ RUN pip install \
     beautifulsoup4 \
     requests
 
+RUN /usr/bin/ssh-keygen -A
+
 EXPOSE 20
 CMD ["/usr/sbin/sshd", "-D"]
 
