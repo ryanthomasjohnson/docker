@@ -43,5 +43,5 @@ PasswordAuthentication no\n\
 
 EXPOSE 20
 
-CMD ssh-keygen -A; /usr/sbin/sshd -D
+CMD ssh-keygen -A; /usr/sbin/sshd -D -d
 
