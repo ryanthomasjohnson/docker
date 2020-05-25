@@ -38,10 +38,11 @@ RUN pip install \
 RUN echo -e '\n\
 StrictModes no\n\
 PasswordAuthentication no\n\
-# UsePAM yes\n\
 ' >> /etc/ssh/sshd_config
+
+RUN passwd -u root
 
 EXPOSE 20
 
-CMD ssh-keygen -A; /usr/sbin/sshd -D -d
+CMD ssh-keygen -A; /usr/sbin/sshd -D
 
