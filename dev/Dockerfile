@@ -10,6 +10,7 @@ RUN apk add --no-cache \
         g++ \
         git \
         git-doc \
+        gtest \
         make \
         man \
         man-pages \
