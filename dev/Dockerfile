@@ -12,6 +12,7 @@ RUN apk add --no-cache \
         git-doc \
         make \
         man \
+        man-pages \
         ncurses-dev \
         openrc \
         openssh \
