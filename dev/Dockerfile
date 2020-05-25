@@ -40,7 +40,7 @@ StrictModes no\n\
 PasswordAuthentication no\n\
 ' >> /etc/ssh/sshd_config
 
-RUN passwd -u root
+RUN passwd -u root && sed -i 's/root:\/bin\/ash/root:\/bin\/bash/g' /etc/passwd
 
 EXPOSE 20
 
