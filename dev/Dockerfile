@@ -11,6 +11,7 @@ RUN apk add --no-cache \
         git \
         git-doc \
         gtest \
+        gtest-dev \
         make \
         man \
         man-pages \
