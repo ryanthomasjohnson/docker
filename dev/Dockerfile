@@ -22,6 +22,8 @@ RUN apk add --no-cache \
         python3 \
         tmux \
         tmux-doc \
+        tree \
+        tree-doc \
         vim \
         vim-doc
 
