@@ -6,7 +6,9 @@ RUN apk add --no-cache \
         ctags \
         curl \
         diffutils \
+        entr \
         findutils \
+        findutils-doc \
         g++ \
         git \
         git-doc \
