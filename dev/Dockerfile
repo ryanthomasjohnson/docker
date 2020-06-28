@@ -14,10 +14,13 @@ RUN apk add --no-cache \
         git-doc \
         gtest \
         gtest-dev \
+        lynx \
         make \
         man \
         man-pages \
+        musl-dbg \
         ncurses-dev \
+        newsboat \
         openrc \
         openssh \
         py3-pip \
@@ -26,6 +29,7 @@ RUN apk add --no-cache \
         tmux-doc \
         tree \
         tree-doc \
+        tzdata \
         vim \
         vim-doc
 
