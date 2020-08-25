@@ -1,8 +1,9 @@
-FROM alpine:3.9.6
+FROM alpine:latest
 
 RUN apk add --no-cache \
         bash \
         build-base \
+        cmake \
         ctags \
         curl \
         diffutils \
