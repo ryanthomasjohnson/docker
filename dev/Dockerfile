@@ -7,6 +7,7 @@ RUN apk add --no-cache \
         ctags \
         curl \
         diffutils \
+        docker \
         entr \
         findutils \
         findutils-doc \
@@ -17,7 +18,6 @@ RUN apk add --no-cache \
         gtest-dev \
         lynx \
         make \
-        man \
         man-pages \
         musl-dbg \
         ncurses-dev \
@@ -34,16 +34,6 @@ RUN apk add --no-cache \
         vim \
         vim-doc
 
-# RUN git clone --depth 1 https://github.com/vim/vim.git /tmp/vim \
-#       && ( cd /tmp/vim && ./configure 
-#             --with-features=huge \
-#             --enable-multibyte \
-#             --enable-python3interp=yes \
-#             --with-python3-config-dir=$(python3-config --configdir) \
-#             --disable-gui \
-#             --disable-netbeans \
-#       && make install )
-
 RUN ln -s $(which python3) /usr/bin/python; ln -s $(which pip3) /usr/bin/pip
 
 RUN pip install \
@@ -57,7 +47,7 @@ PasswordAuthentication no\n\
 
 RUN passwd -u root && sed -i 's/root:\/bin\/ash/root:\/bin\/bash/g' /etc/passwd
 
-EXPOSE 20
+EXPOSE 22
 
 CMD ssh-keygen -A; /usr/sbin/sshd -D
 
