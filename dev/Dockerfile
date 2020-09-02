@@ -20,6 +20,7 @@ RUN apk add --no-cache \
         lynx \
         make \
         man-pages \
+        mandoc \
         musl-dbg \
         ncurses-dev \
         newsboat \
