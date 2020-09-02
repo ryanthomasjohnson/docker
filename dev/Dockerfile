@@ -16,6 +16,7 @@ RUN apk add --no-cache \
         git-doc \
         gtest \
         gtest-dev \
+        less-doc \
         lynx \
         make \
         man-pages \
@@ -34,7 +35,9 @@ RUN apk add --no-cache \
         vim \
         vim-doc
 
-RUN ln -s $(which python3) /usr/bin/python; ln -s $(which pip3) /usr/bin/pip
+RUN rm -f /usr/bin/python /usr/bin/pip && \
+    ln -s $(which python3) /usr/bin/python && \
+    ln -s $(which pip3) /usr/bin/pip
 
 RUN pip install \
     beautifulsoup4 \
