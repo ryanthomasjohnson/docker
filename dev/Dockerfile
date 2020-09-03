@@ -53,5 +53,5 @@ RUN passwd -u root && sed -i 's/root:\/bin\/ash/root:\/bin\/bash/g' /etc/passwd
 
 EXPOSE 22
 
-CMD /usr/sbin/sshd -D
+CMD ssh-keygen -A; /usr/sbin/sshd -D
 
