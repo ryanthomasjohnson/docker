@@ -15,11 +15,16 @@ RUN apk add --no-cache \
     tzdata \
     vim \
     vim-doc \
+    xauth \
 ;
 
-RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' \
+RUN sed -i 's/.*PermitRootLogin.*/PermitRootLogin no/g' \
         /etc/ssh/sshd_config && \
-    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' \
+    sed -i 's/.*PasswordAuthentication.*/PasswordAuthentication no/g' \
+        /etc/ssh/sshd_config && \
+    sed -i 's/.*X11Forwarding.*/X11Forwarding yes/g' \
+        /etc/ssh/sshd_config && \
+    sed -i 's/.*X11UseLocalhost.*/X11UseLocalhost no/g' \
         /etc/ssh/sshd_config && \
     sed -i 's/# %sudo\tALL=(ALL) ALL/%sudo ALL=(ALL) ALL/g' \
         /etc/sudoers && \
