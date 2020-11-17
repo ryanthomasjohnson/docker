@@ -25,6 +25,7 @@ RUN apk add --no-cache \
     openrc \
     py3-pip \
     python3 \
+    yarn \
 ;
 
 RUN rm -f /usr/bin/python /usr/bin/pip && \
