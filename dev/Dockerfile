@@ -18,7 +18,10 @@ RUN apk add --no-cache \
     make \
     musl-dbg \
     ncurses-dev \
+    neovim \
+    neovim-doc \
     newsboat \
+    nodejs \
     openrc \
     py3-pip \
     python3 \
