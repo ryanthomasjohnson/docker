@@ -16,6 +16,8 @@ RUN apk add --no-cache \
     vim \
     vim-doc \
     xauth \
+    xclip \
+    xclip-doc \
 ;
 
 RUN sed -i 's/.*PermitRootLogin.*/PermitRootLogin no/g' \
