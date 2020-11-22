@@ -24,6 +24,7 @@ RUN apk add --no-cache \
     nodejs \
     openrc \
     py3-pip \
+    py3-virtualenv \
     python3 \
     yarn \
 ;
