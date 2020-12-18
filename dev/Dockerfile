@@ -38,17 +38,3 @@ RUN pip install \
     beautifulsoup4 \
     requests \
 ;
-
-# EECS 583
-RUN apk add --no-cache \
-    blas-dev \
-    clang-dev=10.0.0-r2 \
-    compiler-rt-static=10.0.0-r0 \
-    compiler-rt=10.0.0-r0 \
-    cython \
-    gfortran \
-    lapack-dev \
-    llvm10-dev=10.0.0-r2 \
-    llvm10-static=10.0.0-r2 \
-;
-
