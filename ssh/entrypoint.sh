@@ -9,19 +9,23 @@ then
     group_args=''
     if [ ! -z "$gid" ]
     then
-        group_args="$group_args -g $gid"
+        group_args="$group_args --gid $gid"
     fi
-    addgroup $group_args $username
-    groupname=$(grep '.*:.*:100:.*' /etc/group | awk -v FS=: '{ print $1 }')
-    user_args="-s /bin/bash -D -G $groupname"
+    groupname=$username
+    groupadd $group_args $groupname
+    if [ $? -ne 0 ]
+    then
+        groupname=$(grep ".*:.*:$gid:.*" /etc/group | awk -v FS=: '{ print $1 }')
+    fi
+    user_args="--shell /bin/bash --gid $gid --no-create-home"
     if [ ! -z "$uid" ]
     then
-        user_args="$user_args -u $uid"
+        user_args="$user_args --uid $uid"
     fi
-    adduser $user_args $username
-    passwd -u $username
-    addgroup sudo
-    addgroup $username sudo
+    useradd $user_args $username
+    passwd --delete $username
+    groupadd sudo
+    usermod -aG sudo $username
 fi
 
 # Generate host keys, if they do not exist.
@@ -30,4 +34,3 @@ ssh-keygen -A
 # Start sshd and run it in the foreground.
 # Forward debug logs to stderr
 /usr/sbin/sshd -De
-

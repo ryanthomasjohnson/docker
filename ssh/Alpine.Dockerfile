@@ -1,21 +1,23 @@
-FROM archlinux:latest
+FROM alpine:latest
 
-RUN sed -i '/NoExtract.*usr\/share\/man.*/d' /etc/pacman.conf
-
-RUN pacman -Syu --noconfirm
-
-RUN pacman -S --noconfirm \
-    man-db \
+RUN apk add --no-cache \
+    bash \
+    findutils \
+    findutils-doc \
     man-pages \
+    mandoc \
     openssh \
     sudo \
     tmux \
+    tmux-doc \
     tree \
-    vi \
+    tree-doc \
+    tzdata \
     vim \
-    which \
+    vim-doc \
+    xauth \
     xclip \
-    xorg-xauth \
+    xclip-doc \
 ;
 
 RUN sed -i 's/.*PermitRootLogin.*/PermitRootLogin no/g' \
@@ -35,3 +37,4 @@ COPY entrypoint.sh /
 EXPOSE 22
 
 ENTRYPOINT ["/entrypoint.sh"]
+
