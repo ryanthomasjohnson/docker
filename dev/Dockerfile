@@ -1,40 +1,22 @@
 FROM ryanjohnson/ssh:latest
 
-RUN apk add --no-cache \
-    build-base \
+RUN pacman -S --noconfirm \
+    base-devel \
     cmake \
     ctags \
     curl \
     diffutils \
     docker \
     entr \
-    g++ \
     git \
-    git-doc \
     gtest \
-    gtest-dev \
-    less-doc \
     lynx \
-    make \
-    musl-dbg \
-    ncurses-dev \
+    ncurses \
     neovim \
-    neovim-doc \
     newsboat \
     nodejs \
-    openrc \
-    py3-pip \
-    py3-virtualenv \
-    python3 \
+    python \
+    python-pip \
+    python-virtualenv \
     yarn \
-;
-
-RUN rm -f /usr/bin/python /usr/bin/pip && \
-    ln -s $(which python3) /usr/bin/python && \
-    ln -s $(which pip3) /usr/bin/pip && \
-:;
-
-RUN pip install \
-    beautifulsoup4 \
-    requests \
 ;

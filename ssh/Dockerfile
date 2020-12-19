@@ -18,6 +18,8 @@ RUN pacman -S --noconfirm \
     xorg-xauth \
 ;
 
+RUN pacman -Sc --noconfirm
+
 RUN sed -i 's/.*PermitRootLogin.*/PermitRootLogin no/g' \
         /etc/ssh/sshd_config && \
     sed -i 's/.*PasswordAuthentication.*/PasswordAuthentication no/g' \
