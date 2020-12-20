@@ -10,6 +10,9 @@ RUN pacman -S --noconfirm \
     entr \
     git \
     gtest \
+    imagemagick \
+    lastpass-cli \
+    libwebp \
     lynx \
     ncurses \
     neovim \
@@ -18,5 +21,6 @@ RUN pacman -S --noconfirm \
     python \
     python-pip \
     python-virtualenv \
+    vit \
     yarn \
 ;
